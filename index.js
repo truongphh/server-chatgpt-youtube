@@ -14,14 +14,14 @@ app.use(bodyParser.json())
 
 // Configure open api
 const configuration = new Configuration({
-    organization: "PASTE YOUR ORGANIZATION ID HERE",
+    organization: process.env.ORGANIZATION,
     apiKey: process.env.API_KEY // VISIT .env AND MAKE CHANGES
 })
 const openai = new OpenAIApi(configuration)
 
 
 // listeninng
-app.listen("3080", ()=>console.log("listening on port 3080"))
+app.listen(process.env.PORT, ()=>console.log(`listening on port ${process.env.PORT}`))
 
 
 // dummy route to test
