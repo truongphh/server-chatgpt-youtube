@@ -25,9 +25,9 @@ app.post('/', async (req, res)=>{
     const {message} = req.body
     try{
         const response = await openai.createCompletion({
-            model: "text-davinci-003",
+            model: process.env.AI_MODEL,
             prompt: `${message}`,
-            max_tokens: process.env.MAX_TOKENS,
+            max_tokens: Number(process.env.MAX_TOKENS),
             temperature: .5
         })
         res.json({message: response.data.choices[0].text})
