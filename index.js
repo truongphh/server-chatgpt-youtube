@@ -15,7 +15,7 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-app.listen(process.env.PORT, ()=>console.log(`listening on port ${process.env.PORT}`))
+app.listen(process.env.PORT, ()=>console.log(`server listening on port ${process.env.PORT}`))
 
 app.get("/", (req, res) => {
     res.send("Hello World!")
